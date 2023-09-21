@@ -1,0 +1,28 @@
+{
+  "name": "backend-landing",
+  "version": "1.0.0",
+  "description": "Backend separado para el correcto funcionamiento de la Landing Page",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "NODE_ENV=development nodemon -r dotenv/config index.js dotenv_config_path=./.env.development",
+    "start": "NODE_ENV=production nodemon -r dotenv/config index.js dotenv_config_path=./.env.production",
+    "dev:win": "cross-env NODE_ENV=development nodemon -r dotenv/config index.js dotenv_config_path=./.env.development",
+    "build:ui": "powershell -ExecutionPolicy Bypass -Command \"if(Test-Path 'dist'){Remove-Item -Recurse -Force 'dist'};cd ../landing-page;npm run build;Copy-Item dist -Recurse ../backend-landing\""
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "cross-env": "^7.0.3",
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "mongoose": "^7.5.1",
+    "nodemailer": "^6.9.5",
+    "nodemon": "^3.0.1"
+  },
+  "devDependencies": {
+    "@flydotio/dockerfile": "^0.4.9"
+  }
+}
