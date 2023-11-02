@@ -1,21 +1,12 @@
 const mongoose = require('mongoose');
 
-const questionSchema = new mongoose.Schema({
-    id: String,
-    text: String
-});
-
-const metricSchema = new mongoose.Schema({
-    id: String,
-    value: Number
-});
-
 const surveySchema = new mongoose.Schema({
-    name: String,
-    responses: [questionSchema],
-    selectedScales: [metricSchema]
-});
+    name: String, // nombre o identificador de la encuesta
+    email: String,
+    responses: mongoose.Schema.Types.Mixed // para almacenar las respuestas en la estructura proporcionada
+},{timestamps:true});
 
 const Survey = mongoose.model('Survey', surveySchema);
 
 module.exports = Survey;
+

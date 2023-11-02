@@ -6,12 +6,12 @@ const router = express.Router();
 
 router.post('/', async (req, res) => {
   try {
-    const { name, responses, selectedScales } = req.body;
+    const { name, email, responses } = req.body;
 
     const newSurvey = new Survey({
       name,
-      responses,
-      selectedScales
+      email,
+      responses
     });
 
     await newSurvey.save();
